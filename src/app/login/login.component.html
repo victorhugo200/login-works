@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-6 pl-0">
+            <div class="pt-5 bg-dark px-3 vh-100">
+                <span class="d-block display-4 text-light mb-5 pb-3 px-5 text-left"> Works - Login </span>
+                <form action="" [formGroup]="loginForm" class="">
+                    <div class="d-flex justify-content-center flex-column px-5">
+                        <div class="form-group">
+                            <label for="email" class="text-light h6">Email</label>
+                            <input formControlName="email" type="email" class="form-control form-control-lg w-75" id="email" aria-describedby="emailHelp" placeholder="xxxx@gmail.com">
+                            <ap-vmessage text="Email obrigatório" *ngIf="loginForm.get('email').errors?.required"></ap-vmessage>
+                            <ap-vmessage text="Email inválido" *ngIf="loginForm.get('email').errors?.email"></ap-vmessage>
+                            <small class="text-success mt-2" *ngIf="loginForm.get('email').valid">Success</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-light h6">Password</label>
+                            <input formControlName="password" type="password" class="form-control form-control-lg w-75" id="password" aria-describedby="emailHelp" placeholder="123">
+                            <ap-vmessage text="Senha obrigatória" *ngIf="loginForm.get('password').errors?.required"></ap-vmessage>
+                            <ap-vmessage text="Minímo 5 caracteres" *ngIf="loginForm.get('password').errors?.minlength"></ap-vmessage>
+                            <ap-vmessage text="Máximo 8 caracteres" *ngIf="loginForm.get('password').errors?.maxlength"></ap-vmessage>
+                            <small class="text-success mt-2" *ngIf="loginForm.get('password').valid">Success</small>
+
+                        </div>
+                        <button class="btn-outline-primary btn-lg w-75 mb-3" [disabled]="loginForm.invalid">Enviar</button>
+
+                        <small class="text-light h5">Não ter acesso ? <a class="text-primary">Registre-se</a></small>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="w-100 text-center d-flex justify-content-center">
+                <figure class="figure w-75 vh-100 d-flex justify-content-center">
+                    <img src="../../assets/img/contato.png" class="img-fluid w-100 vh-100" alt="">
+                </figure>
+
+            </div>
+        </div>
+    </div>
+
+</div>
